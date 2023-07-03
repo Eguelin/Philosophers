@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/03 18:15:09 by eguelin           #+#    #+#             */
-/*   Updated: 2023/07/03 22:58:21 by eguelin          ###   ########lyon.fr   */
+/*   Created: 2023/07/03 21:19:40 by eguelin           #+#    #+#             */
+/*   Updated: 2023/07/03 21:20:14 by eguelin          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	main(int argc, char **argv)
+size_t	ft_strlen(const char *s)
 {
-	t_input	in;
+	size_t	i;
 
-	if (ft_input(argc, argv, &in))
-		return (1);
-	return (0);
+	i = 0;
+	while (s && s[i])
+		i++;
+	return (i);
 }
