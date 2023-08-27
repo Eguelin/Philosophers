@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_init_data.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/03 18:15:09 by eguelin           #+#    #+#             */
-/*   Updated: 2023/08/26 19:16:05 by eguelin          ###   ########lyon.fr   */
+/*   Created: 2023/07/06 18:40:30 by eguelin           #+#    #+#             */
+/*   Updated: 2023/08/27 14:01:49 by eguelin          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	main(int argc, char **argv)
+int	ft_init_data(int argc, char **argv, t_data *data)
 {
-	t_data	data;
-
-	if (ft_init_data(argc, argv, &data))
+	if (ft_input(argc, argv, data))
 		return (1);
-	ft_philo_end(&data.philo);
+	data->is_dead = 0;
+	data->start = 0;
+	if (ft_philo_birth(data))
+		return (1);
 	return (0);
 }

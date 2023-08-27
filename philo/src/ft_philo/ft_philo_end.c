@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_philo_end.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/03 18:15:09 by eguelin           #+#    #+#             */
-/*   Updated: 2023/08/26 19:16:05 by eguelin          ###   ########lyon.fr   */
+/*   Created: 2023/07/06 18:18:04 by eguelin           #+#    #+#             */
+/*   Updated: 2023/08/27 14:00:38 by eguelin          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	main(int argc, char **argv)
+void	ft_philo_end(t_philo **philo)
 {
-	t_data	data;
+	t_philo	*tmp;
 
-	if (ft_init_data(argc, argv, &data))
-		return (1);
-	ft_philo_end(&data.philo);
-	return (0);
+	if (*philo)
+		(*philo)->previous->next = NULL;
+	while (*philo)
+	{
+		// pthread_join((*philo)->thread, NULL);
+		pthread_mutex_destroy(&(*philo)->fork);
+		tmp = *philo;
+		*philo = (*philo)->next;
+		free(tmp);
+	}
 }

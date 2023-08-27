@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_philo_add.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/03 18:15:09 by eguelin           #+#    #+#             */
-/*   Updated: 2023/08/26 19:16:05 by eguelin          ###   ########lyon.fr   */
+/*   Created: 2023/07/06 00:15:14 by eguelin           #+#    #+#             */
+/*   Updated: 2023/08/27 13:17:37 by eguelin          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	main(int argc, char **argv)
+void	ft_philo_add(t_philo **philo, t_philo *new)
 {
-	t_data	data;
-
-	if (ft_init_data(argc, argv, &data))
-		return (1);
-	ft_philo_end(&data.philo);
-	return (0);
+	if (!*philo)
+		*philo = new;
+	else
+	{
+		new->next = *philo;
+		new->previous = (*philo)->previous;
+		(*philo)->previous->next = new;
+		(*philo)->previous = new;
+	}
 }

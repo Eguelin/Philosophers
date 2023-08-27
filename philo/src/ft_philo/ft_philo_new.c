@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_philo_new.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/03 18:15:09 by eguelin           #+#    #+#             */
-/*   Updated: 2023/08/26 19:16:05 by eguelin          ###   ########lyon.fr   */
+/*   Created: 2023/07/05 23:21:04 by eguelin           #+#    #+#             */
+/*   Updated: 2023/08/27 15:17:14 by eguelin          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	main(int argc, char **argv)
+t_philo	*ft_philo_new(long nbr, t_data *data)
 {
-	t_data	data;
+	t_philo	*philo;
 
-	if (ft_init_data(argc, argv, &data))
-		return (1);
-	ft_philo_end(&data.philo);
-	return (0);
+	philo = malloc(sizeof(t_philo));
+	if (!philo)
+		return (NULL);
+	pthread_mutex_init(&philo->fork, NULL);
+	philo->nbr = nbr;
+	philo->last_eat = 0;
+	philo->fork_access = 0;
+	philo->data = data;
+	philo->next = philo;
+	philo->previous = philo;
+	// pthread_create(&philo->thread, NULL, ft_thread, (void*)philo)
+	return (philo);
 }
