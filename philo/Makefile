@@ -6,7 +6,7 @@
 #    By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/03 18:17:41 by eguelin           #+#    #+#              #
-#    Updated: 2023/08/27 12:40:19 by eguelin          ###   ########lyon.fr    #
+#    Updated: 2023/08/28 18:41:26 by eguelin          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRC_DIR	= src/
 INC_DIR	= include/
 NAME	= philo
 CC		= cc
-CFLAGS	= -Wall -Werror -Wextra -I $(INC_DIR) -g3# -fsanitize=address
+CFLAGS	= -Wall -Werror -Wextra -I $(INC_DIR) -g3 -pthread# -fsanitize=thread -D TSAN_OPTIONS=second_deadlock_stack=1
 RM		= rm -rf
 
 #Colors
@@ -37,13 +37,18 @@ FULL_CLEAN_MSG	= "$(PURPLE)Full cleaning $(NAME) $(WHITE)done on $(YELLOW)$(shel
 #Sources
 ALL_FILES		= main.c
 
-UTILS_DIR = utils/
-UTILS_FILES = ft_init_data.c ft_input.c ft_perror.c ft_strlen.c
-ALL_FILES += $(addprefix $(UTILS_DIR), $(UTILS_FILES))
-
 FT_PHILO_DIR = ft_philo/
 FT_PHILO_FILES = ft_philo_add.c ft_philo_birth.c ft_philo_end.c ft_philo_new.c
 ALL_FILES += $(addprefix $(FT_PHILO_DIR), $(FT_PHILO_FILES))
+
+FT_THREAD_DIR = ft_thread/
+FT_THREAD_FILES = ft_thread.c
+ALL_FILES += $(addprefix $(FT_THREAD_DIR), $(FT_THREAD_FILES))
+
+
+UTILS_DIR = utils/
+UTILS_FILES = ft_init_data.c ft_input.c ft_perror.c ft_strlen.c ft_time_interval.c
+ALL_FILES += $(addprefix $(UTILS_DIR), $(UTILS_FILES))
 
 # ..._DIR = ../
 # ..._FILES = ..
