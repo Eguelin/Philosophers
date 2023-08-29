@@ -6,7 +6,7 @@
 #    By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/03 18:17:41 by eguelin           #+#    #+#              #
-#    Updated: 2023/08/28 18:41:26 by eguelin          ###   ########lyon.fr    #
+#    Updated: 2023/08/29 15:10:44 by eguelin          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,14 +37,9 @@ FULL_CLEAN_MSG	= "$(PURPLE)Full cleaning $(NAME) $(WHITE)done on $(YELLOW)$(shel
 #Sources
 ALL_FILES		= main.c
 
-FT_PHILO_DIR = ft_philo/
-FT_PHILO_FILES = ft_philo_add.c ft_philo_birth.c ft_philo_end.c ft_philo_new.c
-ALL_FILES += $(addprefix $(FT_PHILO_DIR), $(FT_PHILO_FILES))
-
 FT_THREAD_DIR = ft_thread/
 FT_THREAD_FILES = ft_thread.c
 ALL_FILES += $(addprefix $(FT_THREAD_DIR), $(FT_THREAD_FILES))
-
 
 UTILS_DIR = utils/
 UTILS_FILES = ft_init_data.c ft_input.c ft_perror.c ft_strlen.c ft_time_interval.c

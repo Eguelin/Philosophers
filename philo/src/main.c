@@ -6,7 +6,7 @@
 /*   By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 18:15:09 by eguelin           #+#    #+#             */
-/*   Updated: 2023/08/26 19:16:05 by eguelin          ###   ########lyon.fr   */
+/*   Updated: 2023/08/29 14:54:33 by eguelin          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,5 @@ int	main(int argc, char **argv)
 
 	if (ft_init_data(argc, argv, &data))
 		return (1);
-	ft_philo_end(&data.philo);
 	return (0);
 }
