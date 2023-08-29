@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init_data.c                                     :+:      :+:    :+:   */
+/*   ft_clear_data.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/06 18:40:30 by eguelin           #+#    #+#             */
-/*   Updated: 2023/08/29 18:42:20 by eguelin          ###   ########lyon.fr   */
+/*   Created: 2023/08/29 18:33:21 by eguelin           #+#    #+#             */
+/*   Updated: 2023/08/29 18:48:01 by eguelin          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	ft_init_data(int argc, char **argv, t_data *data)
+int	ft_clear_data(t_data *data)
 {
-	data->start = 0;
-	data->dead = 0;
-	if (ft_input(argc, argv, data))
-		return (1);
-	data->philo = malloc(sizeof(t_philo) * data->nbr_philo);
-	if (!data->philo)
-		return (1);
-	ft_init_philo(data, data->philo);
-	pthread_mutex_init(&data->access, NULL);
-	pthread_mutex_init(&data->is_dead, NULL);
-	gettimeofday(&data->time_start, NULL);
-	data->start = 1;
+	ft_clear_philo(data, data->philo);
+	free(data->philo);
+	if (ft_mutex_is_lock(data->access))
+		pthread_mutex_unlock(&data->access);
+	pthread_mutex_destroy(&data->access);
+	if (ft_mutex_is_lock(data->is_dead))
+		pthread_mutex_unlock(&data->is_dead);
+	pthread_mutex_destroy(&data->is_dead);
 	return (0);
 }
