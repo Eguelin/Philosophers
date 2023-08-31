@@ -6,7 +6,7 @@
 /*   By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 20:16:01 by eguelin           #+#    #+#             */
-/*   Updated: 2023/07/03 23:09:21 by eguelin          ###   ########lyon.fr   */
+/*   Updated: 2023/08/31 18:10:28 by eguelin          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ int	ft_perror(const char *s, int error)
 		"or valid number\n", 43);
 	}
 	else if (error == MALLOC_ERROR)
-		write(STDERR_FILENO, "allocation failure", 18);
+		write(STDERR_FILENO, "allocation failure\n", 19);
 	return (1);
 }

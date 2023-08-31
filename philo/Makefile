@@ -6,7 +6,7 @@
 #    By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/03 18:17:41 by eguelin           #+#    #+#              #
-#    Updated: 2023/08/31 14:32:47 by eguelin          ###   ########lyon.fr    #
+#    Updated: 2023/08/31 19:48:26 by eguelin          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRC_DIR	= src/
 INC_DIR	= include/
 NAME	= philo
 CC		= cc
-CFLAGS	= -Wall -Werror -Wextra -I $(INC_DIR) -g3 -pthread -fsanitize=thread -D TSAN_OPTIONS=second_deadlock_stack=1
+CFLAGS	= -Wall -Werror -Wextra -I $(INC_DIR) -g3 -pthread# -fsanitize=thread -D TSAN_OPTIONS=second_deadlock_stack=1
 RM		= rm -rf
 
 #Colors
@@ -38,7 +38,7 @@ FULL_CLEAN_MSG	= "$(PURPLE)Full cleaning $(NAME) $(WHITE)done on $(YELLOW)$(shel
 ALL_FILES		= main.c
 
 UTILS_DIR = utils/
-UTILS_FILES = ft_init_data.c ft_input.c ft_mutex_is_lock.c ft_perror.c ft_strlen.c ft_time_interval.c
+UTILS_FILES = ft_clear_data.c ft_init_data.c ft_input.c ft_mutex_is_lock.c ft_perror.c ft_strlen.c ft_time_interval.c
 ALL_FILES += $(addprefix $(UTILS_DIR), $(UTILS_FILES))
 
 # ..._DIR = ../
