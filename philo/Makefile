@@ -6,7 +6,7 @@
 #    By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/03 18:17:41 by eguelin           #+#    #+#              #
-#    Updated: 2023/08/31 19:48:26 by eguelin          ###   ########lyon.fr    #
+#    Updated: 2023/09/02 17:14:58 by eguelin          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,8 +37,24 @@ FULL_CLEAN_MSG	= "$(PURPLE)Full cleaning $(NAME) $(WHITE)done on $(YELLOW)$(shel
 #Sources
 ALL_FILES		= main.c
 
+CLEAR_DIR = clear/
+CLEAR_FILES = ft_clear_data.c
+ALL_FILES += $(addprefix $(CLEAR_DIR), $(CLEAR_FILES))
+
+INIT_DIR = init/
+INIT_FILES = ft_init_data.c ft_init_philo.c
+ALL_FILES += $(addprefix $(INIT_DIR), $(INIT_FILES))
+
+PARS_DIR = parsing/
+PARS_FILES = ft_input.c
+ALL_FILES += $(addprefix $(PARS_DIR), $(PARS_FILES))
+
+ROUTINE_DIR = routine/
+ROUTINE_FILES = ft_routine.c
+ALL_FILES += $(addprefix $(ROUTINE_DIR), $(ROUTINE_FILES))
+
 UTILS_DIR = utils/
-UTILS_FILES = ft_clear_data.c ft_init_data.c ft_input.c ft_mutex_is_lock.c ft_perror.c ft_strlen.c ft_time_interval.c
+UTILS_FILES = ft_char_to_long.c ft_perror.c ft_strlen.c ft_time_interval.c
 ALL_FILES += $(addprefix $(UTILS_DIR), $(UTILS_FILES))
 
 # ..._DIR = ../
