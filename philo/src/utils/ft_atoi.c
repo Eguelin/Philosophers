@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_char_to_long.c                                  :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 13:07:45 by eguelin           #+#    #+#             */
-/*   Updated: 2023/09/02 13:11:25 by eguelin          ###   ########lyon.fr   */
+/*   Updated: 2023/09/04 16:42:26 by eguelin          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-long	ft_char_to_long(const char *nptr)
+int	ft_atoi(const char *nptr)
 {
 	size_t	i;
 	long	nbr;

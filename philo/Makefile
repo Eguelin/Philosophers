@@ -6,7 +6,7 @@
 #    By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/03 18:17:41 by eguelin           #+#    #+#              #
-#    Updated: 2023/09/02 17:14:58 by eguelin          ###   ########lyon.fr    #
+#    Updated: 2023/09/04 16:42:45 by eguelin          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRC_DIR	= src/
 INC_DIR	= include/
 NAME	= philo
 CC		= cc
-CFLAGS	= -Wall -Werror -Wextra -I $(INC_DIR) -g3 -pthread# -fsanitize=thread -D TSAN_OPTIONS=second_deadlock_stack=1
+CFLAGS	= -Wall -Werror -Wextra -I $(INC_DIR) -g3 -pthread -fsanitize=thread -D TSAN_OPTIONS=second_deadlock_stack=1
 RM		= rm -rf
 
 #Colors
@@ -38,11 +38,11 @@ FULL_CLEAN_MSG	= "$(PURPLE)Full cleaning $(NAME) $(WHITE)done on $(YELLOW)$(shel
 ALL_FILES		= main.c
 
 CLEAR_DIR = clear/
-CLEAR_FILES = ft_clear_data.c
+CLEAR_FILES =
 ALL_FILES += $(addprefix $(CLEAR_DIR), $(CLEAR_FILES))
 
 INIT_DIR = init/
-INIT_FILES = ft_init_data.c ft_init_philo.c
+INIT_FILES = ft_init_data.c
 ALL_FILES += $(addprefix $(INIT_DIR), $(INIT_FILES))
 
 PARS_DIR = parsing/
@@ -50,11 +50,11 @@ PARS_FILES = ft_input.c
 ALL_FILES += $(addprefix $(PARS_DIR), $(PARS_FILES))
 
 ROUTINE_DIR = routine/
-ROUTINE_FILES = ft_routine.c
+ROUTINE_FILES =
 ALL_FILES += $(addprefix $(ROUTINE_DIR), $(ROUTINE_FILES))
 
 UTILS_DIR = utils/
-UTILS_FILES = ft_char_to_long.c ft_perror.c ft_strlen.c ft_time_interval.c
+UTILS_FILES = ft_atoi.c ft_perror.c ft_strlen.c ft_time_interval.c
 ALL_FILES += $(addprefix $(UTILS_DIR), $(UTILS_FILES))
 
 # ..._DIR = ../

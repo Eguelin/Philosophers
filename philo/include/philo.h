@@ -6,7 +6,7 @@
 /*   By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 18:20:52 by eguelin           #+#    #+#             */
-/*   Updated: 2023/09/02 17:11:03 by eguelin          ###   ########lyon.fr   */
+/*   Updated: 2023/09/04 15:17:51 by eguelin          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ typedef enum e_error
 
 typedef struct s_data
 {
-	long			nbr_philo;
-	long			time_to_die;
-	long			time_to_eat;
-	long			time_to_sleep;
-	long			nbr_time_philo_eat;
-	struct timeval	start;
+	int				nbr_philo;
+	int				time_to_die;
+	int				time_to_eat;
+	int				time_to_sleep;
+	int				nbr_time_philo_eat;
+	long			start;
 	struct s_philo	*philo;
 }	t_data;
 
@@ -50,22 +50,19 @@ typedef struct s_philo
 }	t_philo;
 
 ////////// [ clear ] //////////
-int		ft_clear_data(t_data *data);
 
 ////////// [ init ] //////////
 int		ft_init_data(int argc, char **argv, t_data *data);
-void	ft_init_philo(t_data *data, int i);
 
 ////////// [ parsing ] //////////
 int		ft_input(int argc, char **argv, t_data *data);
 
 ////////// [ routine ] //////////
-void	*ft_routine(void *arg);
 
 ////////// [ utils ] //////////
-long	ft_char_to_long(const char *nptr);
+int		ft_atoi(const char *nptr);
 int		ft_perror(const char *s, int error);
 size_t	ft_strlen(const char *s);
-long	ft_time_interval(struct timeval start);
+long	ft_time_interval(long start);
 
 #endif
