@@ -1,36 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init_data.c                                     :+:      :+:    :+:   */
+/*   ft_init_thread.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 18:40:30 by eguelin           #+#    #+#             */
-/*   Updated: 2023/09/05 15:11:29 by eguelin          ###   ########lyon.fr   */
+/*   Updated: 2023/09/05 15:10:00 by eguelin          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	ft_init_data(int argc, char **argv, t_data *data)
+void	*ft_r(void *arg)
 {
-	if (ft_input(argc, argv, data))
-		return (EXIT_FAILURE);
-	data->is_die = 0;
-	if (pthread_mutex_init(&data->access, NULL))
-		return (ft_perror(NULL, MUTEX_ERROR));
-	if (pthread_mutex_init(&data->die, NULL))
-		return (ft_free_all(MUTEX_ERROR, 0, 0, data));
-	data->philo = malloc(data->nbr_philo * sizeof(pthread_mutex_t));
-	if (!data->philo)
-		return (ft_free_all(MALLOC_ERROR, 0, 0, data));
-	if (ft_init_philo(data))
-		return (EXIT_FAILURE);
-	pthread_mutex_lock(&data->access);
-	if (ft_init_thread(data))
-		return (EXIT_FAILURE);
-	gettimeofday(&data->start, NULL);
-	pthread_mutex_unlock(&data->access);
+	return (arg);
+}
+
+int	ft_init_thread(t_data *data)
+{
+	int	i;
+
+	i = 0;
+	while (i < data->nbr_philo)
+	{
+		if (pthread_create(&data->philo[i].thread, NULL, \
+		ft_r, (void *)&data->philo[i]))
+			return (ft_free_all(THREAD_ERROR, data->nbr_philo, i + 1, data));
+		i++;
+	}
 	return (EXIT_SUCCESS);
 }
 

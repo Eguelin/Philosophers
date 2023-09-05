@@ -6,7 +6,7 @@
 /*   By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 20:16:01 by eguelin           #+#    #+#             */
-/*   Updated: 2023/08/31 18:10:28 by eguelin          ###   ########lyon.fr   */
+/*   Updated: 2023/09/04 19:31:50 by eguelin          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,9 @@ int	ft_perror(const char *s, int error)
 	}
 	else if (error == MALLOC_ERROR)
 		write(STDERR_FILENO, "allocation failure\n", 19);
+	else if (error == MUTEX_ERROR || error == FORK_ERROR)
+		write(STDERR_FILENO, "mutex failure\n", 14);
+	else if (error == THREAD_ERROR)
+		write(STDERR_FILENO, "thread failure\n", 15);
 	return (1);
 }

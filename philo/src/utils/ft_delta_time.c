@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_time_interval.c                                 :+:      :+:    :+:   */
+/*   ft_delta_time.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 17:49:31 by eguelin           #+#    #+#             */
-/*   Updated: 2023/09/04 15:15:53 by eguelin          ###   ########lyon.fr   */
+/*   Updated: 2023/09/04 17:29:39 by eguelin          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-long	ft_timestamp(long start)
+long	ft_delta_time(struct timeval t1)
 {
-	struct timeval	tv;
+	struct timeval	t2;
 
-	gettimeofday(&tv, NULL);
-	return (tv.tv_sec * 1000 + tv.tv_usec * 0.001 - start);
+	gettimeofday(&t2, NULL);
+	return ((t2.tv_sec - t1.tv_sec) * 1000 + (t2.tv_usec - t1.tv_usec) * 0.001);
 }
