@@ -6,7 +6,7 @@
 #    By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/03 18:17:41 by eguelin           #+#    #+#              #
-#    Updated: 2023/09/05 15:10:26 by eguelin          ###   ########lyon.fr    #
+#    Updated: 2023/09/06 14:00:17 by eguelin          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,7 @@ ROUTINE_FILES =
 ALL_FILES += $(addprefix $(ROUTINE_DIR), $(ROUTINE_FILES))
 
 UTILS_DIR = utils/
-UTILS_FILES = ft_atoi.c ft_perror.c ft_strlen.c ft_delta_time.c
+UTILS_FILES = ft_atoi.c ft_delta_time.c ft_is_dead.c ft_perror.c ft_strlen.c
 ALL_FILES += $(addprefix $(UTILS_DIR), $(UTILS_FILES))
 
 # ..._DIR = ../

@@ -6,7 +6,7 @@
 /*   By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 18:20:52 by eguelin           #+#    #+#             */
-/*   Updated: 2023/09/05 15:09:45 by eguelin          ###   ########lyon.fr   */
+/*   Updated: 2023/09/06 13:57:36 by eguelin          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ typedef struct s_data
 	int				time_to_eat;
 	int				time_to_sleep;
 	int				nbr_time_philo_eat;
-	int				is_die;
+	int				is_dead;
 	pthread_mutex_t	access;
-	pthread_mutex_t	die;
+	pthread_mutex_t	dead;
 	struct timeval	start;
 	struct s_philo	*philo;
 }	t_data;
@@ -71,8 +71,9 @@ int		ft_input(int argc, char **argv, t_data *data);
 
 ////////// [ utils ] //////////
 int		ft_atoi(const char *nptr);
+long	ft_delta_time(struct timeval t1);
+int		ft_is_dead(t_philo *philo);
 int		ft_perror(const char *s, int error);
 size_t	ft_strlen(const char *s);
-long	ft_delta_time(struct timeval t1);
 
 #endif
