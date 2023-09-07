@@ -6,7 +6,7 @@
 /*   By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 20:11:13 by eguelin           #+#    #+#             */
-/*   Updated: 2023/09/04 15:16:37 by eguelin          ###   ########lyon.fr   */
+/*   Updated: 2023/09/07 14:33:46 by eguelin          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	ft_input(int argc, char **argv, t_data *data)
 		data->nbr_time_philo_eat = ft_atoi(argv[5]);
 		if (data->nbr_time_philo_eat < 0)
 			return (ft_perror("nbr_time_philo_eat", WRONG_ARGUMENTS));
+		return (0);
 	}
 	data->nbr_time_philo_eat = -1;
 	return (0);

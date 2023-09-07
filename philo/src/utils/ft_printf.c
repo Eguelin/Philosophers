@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init_thread.c                                   :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/06 18:40:30 by eguelin           #+#    #+#             */
-/*   Updated: 2023/09/07 18:21:29 by eguelin          ###   ########lyon.fr   */
+/*   Created: 2023/09/07 16:09:18 by eguelin           #+#    #+#             */
+/*   Updated: 2023/09/07 16:24:51 by eguelin          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	ft_init_thread(t_data *data)
+void	ft_printf(char *str, t_philo *philo)
 {
-	int	i;
-
-	i = 0;
-	while (i < data->nbr_philo)
+	pthread_mutex_lock(&philo->data->access);
+	if (ft_is_someone_dead(philo->data) || ft_is_he_dead(philo))
 	{
-		if (pthread_create(&data->philo[i].thread, NULL, \
-		ft_start_routine, (void *)&data->philo[i]))
-			return (ft_free_all(THREAD_ERROR, data->nbr_philo, i + 1, data));
-		i++;
+		pthread_mutex_unlock(&philo->data->access);
+		return ;
 	}
-	return (EXIT_SUCCESS);
+	printf("%li %i %s", ft_delta_time(philo->data->start), philo->id, str);
+	pthread_mutex_unlock(&philo->data->access);
 }

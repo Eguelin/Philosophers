@@ -6,7 +6,7 @@
 /*   By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 14:11:55 by eguelin           #+#    #+#             */
-/*   Updated: 2023/09/06 14:00:04 by eguelin          ###   ########lyon.fr   */
+/*   Updated: 2023/09/06 16:57:36 by eguelin          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_free_all(int error, int n_fork, int n_thread, t_data *data)
 	i = 0;
 	if (n_thread && error == THREAD_ERROR)
 	{
-		data->is_dead = 1;
+		data->one_dead = 1;
 		pthread_mutex_unlock(&data->access);
 	}
 	while (n_thread > i)

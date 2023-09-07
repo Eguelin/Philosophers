@@ -6,7 +6,7 @@
 #    By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/03 18:17:41 by eguelin           #+#    #+#              #
-#    Updated: 2023/09/06 14:00:17 by eguelin          ###   ########lyon.fr    #
+#    Updated: 2023/09/07 18:13:36 by eguelin          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRC_DIR	= src/
 INC_DIR	= include/
 NAME	= philo
 CC		= cc
-CFLAGS	= -Wall -Werror -Wextra -I $(INC_DIR) -g3 -pthread -fsanitize=thread -D TSAN_OPTIONS=second_deadlock_stack=1
+CFLAGS	= -Wall -Werror -Wextra -I $(INC_DIR) -g3 -pthread# -fsanitize=thread -D TSAN_OPTIONS=second_deadlock_stack=1
 RM		= rm -rf
 
 #Colors
@@ -50,11 +50,11 @@ PARS_FILES = ft_input.c
 ALL_FILES += $(addprefix $(PARS_DIR), $(PARS_FILES))
 
 ROUTINE_DIR = routine/
-ROUTINE_FILES =
+ROUTINE_FILES = ft_eating.c ft_even_philo.c ft_odd_philo.c ft_free_fork.c ft_sleeping.c ft_take_fork.c ft_start_routine.c
 ALL_FILES += $(addprefix $(ROUTINE_DIR), $(ROUTINE_FILES))
 
 UTILS_DIR = utils/
-UTILS_FILES = ft_atoi.c ft_delta_time.c ft_is_dead.c ft_perror.c ft_strlen.c
+UTILS_FILES = ft_atoi.c ft_delta_time.c ft_is_he_dead.c ft_is_someone_dead.c ft_perror.c ft_printf.c ft_strlen.c
 ALL_FILES += $(addprefix $(UTILS_DIR), $(UTILS_FILES))
 
 # ..._DIR = ../

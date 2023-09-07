@@ -6,7 +6,7 @@
 /*   By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 18:20:52 by eguelin           #+#    #+#             */
-/*   Updated: 2023/09/06 13:57:36 by eguelin          ###   ########lyon.fr   */
+/*   Updated: 2023/09/07 18:16:19 by eguelin          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct s_data
 	int				time_to_eat;
 	int				time_to_sleep;
 	int				nbr_time_philo_eat;
-	int				is_dead;
+	int				one_dead;
 	pthread_mutex_t	access;
 	pthread_mutex_t	dead;
 	struct timeval	start;
@@ -68,12 +68,21 @@ int		ft_init_thread(t_data *data);
 int		ft_input(int argc, char **argv, t_data *data);
 
 ////////// [ routine ] //////////
+void	ft_eating(t_philo *philo);
+void	ft_even_philo(t_philo *philo);
+void	ft_free_fork(t_philo *philo);
+void	ft_odd_philo(t_philo *philo);
+void	ft_sleeping(t_philo *philo);
+void	*ft_start_routine(void *philo);
+void	ft_take_fork(t_philo *philo, t_philo *philo_fork);
 
 ////////// [ utils ] //////////
 int		ft_atoi(const char *nptr);
 long	ft_delta_time(struct timeval t1);
-int		ft_is_dead(t_philo *philo);
+int		ft_is_he_dead(t_philo *philo);
+int		ft_is_someone_dead(t_data *data);
 int		ft_perror(const char *s, int error);
+void	ft_printf(char *str, t_philo *philo);
 size_t	ft_strlen(const char *s);
 
 #endif
