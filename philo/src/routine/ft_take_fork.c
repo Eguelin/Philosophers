@@ -6,7 +6,7 @@
 /*   By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 14:08:42 by eguelin           #+#    #+#             */
-/*   Updated: 2023/09/07 18:15:13 by eguelin          ###   ########lyon.fr   */
+/*   Updated: 2023/09/08 16:21:39 by eguelin          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_take_fork(t_philo *philo, t_philo *philo_fork)
 			return ;
 		}
 		pthread_mutex_unlock(&philo_fork->fork);
-		if (ft_is_someone_dead(philo->data) || ft_is_he_dead(philo))
+		if (ft_is_someone_dead(philo->data))
 			return ;
 	}
 }

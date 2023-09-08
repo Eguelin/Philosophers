@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_start_routine.c                                 :+:      :+:    :+:   */
+/*   ft_usleep.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/06 14:08:42 by eguelin           #+#    #+#             */
-/*   Updated: 2023/09/08 14:59:02 by eguelin          ###   ########lyon.fr   */
+/*   Created: 2023/09/08 15:16:06 by eguelin           #+#    #+#             */
+/*   Updated: 2023/09/08 16:21:35 by eguelin          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	*ft_start_routine(void *philo)
+void	ft_usleep(int time)
 {
-	pthread_mutex_lock(&((t_philo *)philo)->data->access);
-	pthread_mutex_unlock(&((t_philo *)philo)->data->access);
-	if (((t_philo *)philo)->id >> 0 & 1)
-		ft_odd_philo(((t_philo *)philo));
-	else
-		ft_even_philo(((t_philo *)philo));
-	return (NULL);
+	struct timeval	t1;
+
+	gettimeofday(&t1, NULL);
+	while (ft_delta_time(t1) < time)
+		;
 }
