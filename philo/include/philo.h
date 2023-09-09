@@ -6,7 +6,7 @@
 /*   By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 18:20:52 by eguelin           #+#    #+#             */
-/*   Updated: 2023/09/08 15:27:23 by eguelin          ###   ########lyon.fr   */
+/*   Updated: 2023/09/09 14:22:52 by eguelin          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,11 +80,10 @@ void	ft_take_fork(t_philo *philo, t_philo *philo_fork);
 ////////// [ utils ] //////////
 int		ft_atoi(const char *nptr);
 long	ft_delta_time(struct timeval t1);
-void	ft_is_he_dead(t_data *data);
-int		ft_is_someone_dead(t_data *data);
+int		ft_is_someone_dead(t_philo *philo);
 int		ft_perror(const char *s, int error);
 void	ft_printf(char *str, t_philo *philo);
 size_t	ft_strlen(const char *s);
-void	ft_usleep(int time);
+void	ft_usleep(int time, t_philo *philo);
 
 #endif
