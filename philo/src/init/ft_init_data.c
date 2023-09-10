@@ -6,7 +6,7 @@
 /*   By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 18:40:30 by eguelin           #+#    #+#             */
-/*   Updated: 2023/09/08 13:39:41 by eguelin          ###   ########lyon.fr   */
+/*   Updated: 2023/09/10 13:10:48 by eguelin          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int	ft_init_data(int argc, char **argv, t_data *data)
 	if (ft_input(argc, argv, data))
 		return (EXIT_FAILURE);
 	data->one_dead = 0;
-	data->nbr_philo_eat_max = 0;
 	if (pthread_mutex_init(&data->access, NULL))
 		return (ft_perror(NULL, MUTEX_ERROR));
 	if (pthread_mutex_init(&data->dead, NULL))

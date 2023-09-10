@@ -6,7 +6,7 @@
 /*   By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 18:20:52 by eguelin           #+#    #+#             */
-/*   Updated: 2023/09/09 14:22:52 by eguelin          ###   ########lyon.fr   */
+/*   Updated: 2023/09/10 13:11:02 by eguelin          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ typedef struct s_data
 	int				time_to_sleep;
 	int				nbr_time_philo_eat;
 	int				one_dead;
-	int				nbr_philo_eat_max;
 	pthread_mutex_t	access;
 	pthread_mutex_t	dead;
 	struct timeval	start;
