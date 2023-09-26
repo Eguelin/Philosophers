@@ -6,7 +6,7 @@
 /*   By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 14:08:42 by eguelin           #+#    #+#             */
-/*   Updated: 2023/09/10 13:08:07 by eguelin          ###   ########lyon.fr   */
+/*   Updated: 2023/09/26 18:39:04 by eguelin          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_odd_philo(t_philo *philo)
 {
 	if (philo->id != 1 && philo->next->id == 1)
 		usleep(2000);
-	gettimeofday(&((t_philo *)philo)->last_eat, NULL);
+	gettimeofday(&philo->last_eat, NULL);
 	while (1)
 	{
 		ft_sleeping(philo);

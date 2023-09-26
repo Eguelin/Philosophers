@@ -6,7 +6,7 @@
 /*   By: eguelin <eguelin@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 14:08:42 by eguelin           #+#    #+#             */
-/*   Updated: 2023/09/10 13:35:02 by eguelin          ###   ########lyon.fr   */
+/*   Updated: 2023/09/26 18:39:11 by eguelin          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_even_philo(t_philo *philo)
 {
-	gettimeofday(&((t_philo *)philo)->last_eat, NULL);
+	gettimeofday(&philo->last_eat, NULL);
 	while (1)
 	{
 		ft_take_fork(philo, philo);
